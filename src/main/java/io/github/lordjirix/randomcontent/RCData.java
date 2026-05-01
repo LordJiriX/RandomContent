@@ -42,7 +42,9 @@ public class RCData {
   public static final HashMap<Item, GreenHouseRecipe> greenHouseRecipes =
       new HashMap<>() {
         {
-          put(Items.OAK_SAPLING, new GreenHouseRecipe(
+          put(
+              Items.OAK_SAPLING,
+              new GreenHouseRecipe(
                   new ItemStack[] {
                     new ItemStack(Items.OAK_LOG, 8),
                     new ItemStack(Items.OAK_LEAVES, 4),

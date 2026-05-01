@@ -23,7 +23,7 @@ public class Config {
   private static final ForgeConfigSpec.IntValue BEDROCK_MINER_RF_USAGE =
       BUILDER
           .comment("A amout of RF/t used while Bedrock Miner work")
-          .defineInRange("bedrock_miner_RFt", 60, 10, Integer.MAX_VALUE);
+          .defineInRange("bedrock_miner_RFt", 120, 20, Integer.MAX_VALUE);
 
   private static final ForgeConfigSpec.IntValue BEDROCK_MINER_WORK_TIME =
       BUILDER
@@ -33,6 +33,15 @@ public class Config {
   // public static final ForgeConfigSpec.ConfigValue<String> MAGIC_NUMBER_INTRODUCTION =
   // BUILDER.comment("What you want the introduction message to be for the magic
   // number").define("magicNumberIntroduction", "The magic number is... ");
+
+  private static final ForgeConfigSpec.IntValue GREEN_HOUSE_RF_USAGE =
+      BUILDER
+          .comment("A amout of RF/t used while Green House work")
+          .defineInRange("green_house_RFt", 60, 20, Integer.MAX_VALUE);
+  private static final ForgeConfigSpec.IntValue GREEN_HOUSE_GROW_TIME =
+      BUILDER
+          .comment("Time (in ticks) to grow a crop in Green House")
+          .defineInRange("green_house_time", 2400, 20, Integer.MAX_VALUE);
 
   public static final ForgeConfigSpec.BooleanValue GAME_MODE_SWAPPER_OWNER =
       BUILDER
@@ -52,6 +61,8 @@ public class Config {
   public static int bedrockMinerRfUsage;
   public static boolean gameModeSwapperOwner;
   public static int bedrockMinerWorkTime;
+  public static int greenHouseRfUsage;
+  public static int greenHouseGrowTime;
 
   private static boolean validateItemName(final Object obj) {
     return obj instanceof final String itemName
@@ -70,5 +81,7 @@ public class Config {
     bedrockMinerRfUsage = BEDROCK_MINER_RF_USAGE.get();
     gameModeSwapperOwner = GAME_MODE_SWAPPER_OWNER.get();
     bedrockMinerWorkTime = BEDROCK_MINER_WORK_TIME.get();
+    greenHouseRfUsage = GREEN_HOUSE_RF_USAGE.get();
+    greenHouseGrowTime = GREEN_HOUSE_GROW_TIME.get();
   }
 }

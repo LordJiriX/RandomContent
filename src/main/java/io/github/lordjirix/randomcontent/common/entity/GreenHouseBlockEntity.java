@@ -1,5 +1,6 @@
 package io.github.lordjirix.randomcontent.common.entity;
 
+import io.github.lordjirix.randomcontent.Config;
 import io.github.lordjirix.randomcontent.RCData;
 import io.github.lordjirix.randomcontent.api.block.IRecipeRunnable;
 import io.github.lordjirix.randomcontent.gui.menu.GreenHouseMenu;
@@ -27,10 +28,11 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class GreenHouseBlockEntity extends BlockEntity implements IRecipeRunnable, MenuProvider {
-  public int timeToRunRecipe = 20 * 10;
+  public int timeToRunRecipe = Config.greenHouseGrowTime;
   public int currentRunTime = timeToRunRecipe;
-  public int energyPerTick = 60;
-  private final ItemStackHandler inventory = new ItemStackHandler(10) {
+  public int energyPerTick = Config.greenHouseRfUsage;
+  private final ItemStackHandler inventory =
+      new ItemStackHandler(10) {
         @Override
         protected void onContentsChanged(int slot) {
           setChanged();
@@ -75,13 +77,14 @@ public class GreenHouseBlockEntity extends BlockEntity implements IRecipeRunnabl
     energy.extractEnergy(energyPerTick, false);
     currentRunTime--;
     if (currentRunTime <= 0) {
-        ItemStack[] output = null;
-        try {
-          output = RCData.greenHouseRecipes.get(inventory.getStackInSlot(0).getItem()).getOutput();
-        } catch (Exception e) {}
-        for (int i = 0; i < output.length; i++) {
-            inventory.insertItem(i + 1, output[i].copy(), false);
-        }
+      ItemStack[] output = null;
+      try {
+        output = RCData.greenHouseRecipes.get(inventory.getStackInSlot(0).getItem()).getOutput();
+      } catch (Exception e) {
+      }
+      for (int i = 0; i < output.length; i++) {
+        inventory.insertItem(i + 1, output[i].copy(), false);
+      }
       currentRunTime = timeToRunRecipe;
       return;
     }

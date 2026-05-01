@@ -27,10 +27,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class BedrockMinerBlockEntity extends BlockEntity implements MenuProvider {
-  /*
-   *  TODO:
-   *    - make storage for multiple items
-   * */
+
   public boolean isValid;
   public int workTime = Config.bedrockMinerWorkTime;
   public int timeToFinish = workTime;
