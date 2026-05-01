@@ -15,7 +15,6 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -24,15 +23,11 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
 public class BlockBedrockMiner extends Block implements EntityBlock {
-  public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
   public BlockBedrockMiner(Properties properties) {
     super(properties);
@@ -106,16 +101,5 @@ public class BlockBedrockMiner extends Block implements EntityBlock {
       }
     }
     return InteractionResult.sidedSuccess(level.isClientSide);
-  }
-
-  @Override
-  protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-    pBuilder.add(FACING);
-    super.createBlockStateDefinition(pBuilder);
-  }
-
-  @Override
-  public BlockState getStateForPlacement(BlockPlaceContext ctx) {
-    return this.defaultBlockState().setValue(FACING, ctx.getHorizontalDirection().getOpposite());
   }
 }

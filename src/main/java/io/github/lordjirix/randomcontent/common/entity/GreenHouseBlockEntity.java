@@ -121,12 +121,12 @@ public class GreenHouseBlockEntity extends BlockEntity implements IRecipeRunnabl
     return timeToRunRecipe;
   }
 
-    @Override
-    public int getRFPerTick() {
-        return energyPerTick;
-    }
+  @Override
+  public int getRFPerTick() {
+    return energyPerTick;
+  }
 
-    @Override
+  @Override
   public Component getDisplayName() {
     return Component.literal("Green House");
   }
