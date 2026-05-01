@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bedrockium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "randomcontent:bedrockium_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "randomcontent:bedrockium_drill"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_bedrockium_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "randomcontent:bedrockium_drill"
+    ]
+  },
+  "sends_telemetry_event": false
+}

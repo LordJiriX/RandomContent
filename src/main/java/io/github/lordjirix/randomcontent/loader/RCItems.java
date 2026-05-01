@@ -39,6 +39,14 @@ public class RCItems {
       ITEMS.register("processing_core_t1", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> PROCESSING_CORE_T2 =
       ITEMS.register("processing_core_t2", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> STEEL_DUST =
+      ITEMS.register("steel_dust", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> STEEL_INGOT =
+      ITEMS.register("steel_ingot", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> IRON_DUST =
+      ITEMS.register("iron_dust", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> SIMPLE_GRINDER =
+      ITEMS.register("simple_grinder", () -> new Item(new Item.Properties()));
 
   public static void init(IEventBus bus) {
     ITEMS.register(bus);

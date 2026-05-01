@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "pattern": [
+    " I ",
+    "SIS",
+    "SSS"
+  ],
+  "result": {
+    "item": "randomcontent:simple_grinder"
+  },
+  "show_notification": true
+}

@@ -5,6 +5,7 @@ import static io.github.lordjirix.randomcontent.loader.RCItems.*;
 import com.mojang.logging.LogUtils;
 import io.github.lordjirix.randomcontent.gui.screen.BedrockMinerScreen;
 import io.github.lordjirix.randomcontent.gui.screen.GreenHouseScreen;
+import io.github.lordjirix.randomcontent.gui.screen.SimpleOneScreen;
 import io.github.lordjirix.randomcontent.loader.*;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.registries.Registries;
@@ -109,6 +110,7 @@ public class Randomcontent {
           () -> {
             MenuScreens.register(RCMenus.BEDROCK_MINER.get(), BedrockMinerScreen::new);
             MenuScreens.register(RCMenus.GREEN_HOUSE.get(), GreenHouseScreen::new);
+            MenuScreens.register(RCMenus.SIMPLE_ONESLOT_MENU.get(), SimpleOneScreen::new);
           });
     }
   }

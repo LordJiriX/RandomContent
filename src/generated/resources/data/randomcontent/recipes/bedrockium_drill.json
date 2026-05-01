@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "randomcontent:bedrockium_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " B ",
+    "SSB",
+    " B "
+  ],
+  "result": {
+    "item": "randomcontent:bedrockium_drill"
+  },
+  "show_notification": true
+}

@@ -2,6 +2,7 @@ package io.github.lordjirix.randomcontent.common.entity;
 
 import io.github.lordjirix.randomcontent.Config;
 import io.github.lordjirix.randomcontent.gui.menu.BedrockMinerMenu;
+import io.github.lordjirix.randomcontent.gui.menu.SimpleOneMenu;
 import io.github.lordjirix.randomcontent.loader.RCBlockEntitys;
 import io.github.lordjirix.randomcontent.loader.RCItems;
 import net.minecraft.core.BlockPos;
@@ -55,7 +56,7 @@ public class BedrockMinerBlockEntity extends BlockEntity implements MenuProvider
 
   @Override
   public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-    return new BedrockMinerMenu(id, inv, this.inventory);
+    return new SimpleOneMenu(id, inv, this.inventory);
   }
 
   public IItemHandler getInventory() {

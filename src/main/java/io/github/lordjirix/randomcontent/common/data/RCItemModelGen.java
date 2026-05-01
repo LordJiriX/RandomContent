@@ -21,6 +21,7 @@ public class RCItemModelGen extends ItemModelProvider {
     simpleItem(RCItems.MULTI_TOOL);
     simpleItem(RCItems.GAME_MODE_SWAPPER);
     simpleItem(RCItems.EXAMPLE_LOOTBAG);
+    simpleItem(RCItems.SIMPLE_GRINDER);
     // Materials ++ Parts
     simpleItem(RCItems.BEDROCKIUM_INGOT);
     simpleItem(RCItems.BEDROCKIUM_DRILL);
@@ -29,6 +30,9 @@ public class RCItemModelGen extends ItemModelProvider {
     simpleItem(RCItems.PROCESSING_CORE_T1);
     simpleItem(RCItems.PROCESSING_CORE_T2);
     simpleItem(RCItems.DIAMOND_DRILL);
+    simpleItem(RCItems.STEEL_DUST);
+    simpleItem(RCItems.STEEL_INGOT);
+    simpleItem(RCItems.IRON_DUST);
   }
 
   @SuppressWarnings("removal")
