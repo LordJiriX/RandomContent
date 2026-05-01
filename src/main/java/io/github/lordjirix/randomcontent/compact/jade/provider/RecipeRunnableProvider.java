@@ -27,11 +27,12 @@ public enum RecipeRunnableProvider
       }
       iTooltip.add(
           Component.literal(
-              "Time: "
+              "Time left: "
                   + blockAccessor.getServerData().getInt("currentRunTime") / 20
                   + "/"
                   + blockAccessor.getServerData().getInt("timeToRunRecipe") / 20
                   + " s"));
+      iTooltip.add(Component.literal("RF/t: " + blockAccessor.getServerData().getInt("RFPerTick")));
     }
   }
 
@@ -40,6 +41,7 @@ public enum RecipeRunnableProvider
     IRecipeRunnable runnable = (IRecipeRunnable) blockAccessor.getBlockEntity();
     compoundTag.putInt("timeToRunRecipe", runnable.getTimeToRunRecipe());
     compoundTag.putInt("currentRunTime", runnable.getCurrentRunTime());
+    compoundTag.putInt("RFPerTick", runnable.getRFPerTick());
   }
 
   @Override
