@@ -1,0 +1,14 @@
+{
+  "block.randomcontent.bedrock_miner_block": "Bedrock Miner",
+  "config.jade.plugin_randomcontent.bedrock_miner": "Bedrock Miner",
+  "config.jade.plugin_randomcontent.recipe_runner_base": "RC Recipe Runner (Base)",
+  "item.randomcontent.bedrockium_drill": "Bedrockium Drill",
+  "item.randomcontent.bedrockium_dust": "Bedrockium Dust",
+  "item.randomcontent.bedrockium_ingot": "Bedrockium Ingot",
+  "item.randomcontent.diamond_drill": "Diamond Drill",
+  "item.randomcontent.laser_core": "Laser Core",
+  "item.randomcontent.multi_tool": "Multi Tool",
+  "item.randomcontent.processing_core_t1": "Processing Core T1",
+  "item.randomcontent.processing_core_t2": "Processing Core T2",
+  "itemGroup.randomcontent.random_content_tab": "Random Content"
+}
