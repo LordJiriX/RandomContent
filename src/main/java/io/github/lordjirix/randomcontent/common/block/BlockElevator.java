@@ -9,45 +9,47 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class BlockElevator extends Block {
-    private int timer = 0;
-    public BlockElevator(Properties properties) {
-        super(properties);
-    }
+  private int timer = 0;
 
-    @Override
-    public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
-        if (pLevel.isClientSide) {
-           return;
-        }
-        if (pEntity instanceof Player player) {
-            if (player.isShiftKeyDown()) {
-                doWarpDown(player,pPos,pLevel);
-                return;
-            }
-            if (player.getY() - pPos.getY() == 0.5 && player.getY() - pPos.getY() <= 1.5) {
-                doWarpUp(player,pPos,pLevel);
-                return;
-            }
+  public BlockElevator(Properties properties) {
+    super(properties);
+  }
 
-        }
-        super.stepOn(pLevel, pPos, pState, pEntity);
+  @Override
+  public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
+    if (pLevel.isClientSide) {
+      return;
     }
-    public void doWarpUp(Player player,BlockPos pos,Level level) {
-       for (int i = 1; i < 256; i++) {
-           BlockPos newPos = pos.offset(0,i,0);
-           if (level.getBlockState(newPos).getBlock() == RCBlocks.ELEVATOR_BLOCK.get()) {
-               player.teleportTo(player.getX(),newPos.getY() + 1,player.getZ());
-               return;
-           }
-       }
+    if (pEntity instanceof Player player) {
+      if (player.isShiftKeyDown()) {
+        doWarpDown(player, pPos, pLevel);
+        return;
+      }
+      if (player.getY() - pPos.getY() == 0.5 && player.getY() - pPos.getY() <= 1.5) {
+        doWarpUp(player, pPos, pLevel);
+        return;
+      }
     }
-    public void doWarpDown(Player player,BlockPos pos,Level level) {
-        for (int i = 1; i < 256; i++) {
-            BlockPos newPos = pos.offset(0,-i,0);
-            if (level.getBlockState(newPos).getBlock() == RCBlocks.ELEVATOR_BLOCK.get()) {
-                player.teleportTo(player.getX(),newPos.getY() + 1,player.getZ());
-                return;
-            }
-        }
+    super.stepOn(pLevel, pPos, pState, pEntity);
+  }
+
+  public void doWarpUp(Player player, BlockPos pos, Level level) {
+    for (int i = 1; i < 256; i++) {
+      BlockPos newPos = pos.offset(0, i, 0);
+      if (level.getBlockState(newPos).getBlock() == RCBlocks.ELEVATOR_BLOCK.get()) {
+        player.teleportTo(player.getX(), newPos.getY() + 1, player.getZ());
+        return;
+      }
     }
+  }
+
+  public void doWarpDown(Player player, BlockPos pos, Level level) {
+    for (int i = 1; i < 256; i++) {
+      BlockPos newPos = pos.offset(0, -i, 0);
+      if (level.getBlockState(newPos).getBlock() == RCBlocks.ELEVATOR_BLOCK.get()) {
+        player.teleportTo(player.getX(), newPos.getY() + 1, player.getZ());
+        return;
+      }
+    }
+  }
 }
