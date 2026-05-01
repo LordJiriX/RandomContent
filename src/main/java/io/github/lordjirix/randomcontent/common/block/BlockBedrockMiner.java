@@ -56,24 +56,6 @@ public class BlockBedrockMiner extends Block implements EntityBlock {
         };
   }
 
-  // TODO: remove (need impl in entity)
-  @Override
-  public void onPlace(
-      BlockState p_60566_, Level world, BlockPos blockPos, BlockState p_60569_, boolean p_60570_) {
-    if (world.isClientSide) {
-      return;
-    }
-    BlockEntity blockEntity = world.getBlockEntity(blockPos);
-    if (blockEntity instanceof BedrockMinerBlockEntity te) {
-      if (world.getBlockState(blockPos.offset(0, -1, 0)).getBlock() != Blocks.BEDROCK) {
-        return;
-      }
-      te.setValid(true);
-      te.setChanged();
-    }
-    super.onPlace(p_60566_, world, blockPos, p_60569_, p_60570_);
-  }
-
   // TODO: make it way better
   @Override
   public void appendHoverText(

@@ -30,17 +30,7 @@ public class GreenHouseBlockEntity extends BlockEntity implements IRecipeRunnabl
   public int timeToRunRecipe = 20 * 10;
   public int currentRunTime = timeToRunRecipe;
   public int energyPerTick = 60;
-  private final ItemStackHandler inventory =
-      new ItemStackHandler(10) {
-        @Override
-        @NotNull
-        public ItemStack extractItem(int slot, int amount, boolean simulate) {
-          if (slot == 0) {
-            return ItemStack.EMPTY;
-          }
-          return super.extractItem(slot, amount, simulate);
-        }
-
+  private final ItemStackHandler inventory = new ItemStackHandler(10) {
         @Override
         protected void onContentsChanged(int slot) {
           setChanged();
@@ -85,16 +75,13 @@ public class GreenHouseBlockEntity extends BlockEntity implements IRecipeRunnabl
     energy.extractEnergy(energyPerTick, false);
     currentRunTime--;
     if (currentRunTime <= 0) {
-      ItemStack[] output =
-          RCData.greenHouseRecipes.get(inventory.getStackInSlot(0).getItem()).getOutput();
-      for (int i = 0; i < output.length; i++) {
-        if (inventory.getStackInSlot(i + 1).isEmpty()) {
-          inventory.setStackInSlot(i + 1, output[i]);
-        } else {
-          inventory.getStackInSlot(i + 1).grow(output[i].getCount());
+        ItemStack[] output = null;
+        try {
+          output = RCData.greenHouseRecipes.get(inventory.getStackInSlot(0).getItem()).getOutput();
+        } catch (Exception e) {}
+        for (int i = 0; i < output.length; i++) {
+            inventory.insertItem(i + 1, output[i].copy(), false);
         }
-      }
-
       currentRunTime = timeToRunRecipe;
       return;
     }

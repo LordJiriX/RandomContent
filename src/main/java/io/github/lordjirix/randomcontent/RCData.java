@@ -14,6 +14,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class RCData {
   // core
+  // spotless: off
 
   public static final ArrayList<RegistryObject<Item>> allItemList =
       new ArrayList<>(
@@ -41,14 +42,11 @@ public class RCData {
   public static final HashMap<Item, GreenHouseRecipe> greenHouseRecipes =
       new HashMap<>() {
         {
-          put(
-              Items.OAK_SAPLING,
-              new GreenHouseRecipe(
+          put(Items.OAK_SAPLING, new GreenHouseRecipe(
                   new ItemStack[] {
                     new ItemStack(Items.OAK_LOG, 8),
                     new ItemStack(Items.OAK_LEAVES, 4),
-                    new ItemStack(Items.APPLE, 1),
-                    new ItemStack(Items.OAK_SAPLING, 2)
+                    new ItemStack(Items.APPLE, 1)
                   }));
         }
       };
