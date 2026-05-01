@@ -1,9 +1,8 @@
 name: Auto Release
 
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    - cron: "0 0 */7 * *"
 
 jobs:
   build-and-release:
@@ -64,6 +63,7 @@ jobs:
         with:
           tag_name: latest-autobuild
           name: "Latest Autobuild"
+          prerelease: true
           files: ${{ steps.jar.outputs.file }}
           body: |
             # Latest Autobuild
