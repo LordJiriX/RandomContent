@@ -1,0 +1,78 @@
+name: Auto Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
+
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
+
+      - name: Run Spotless check
+        run: ./gradlew spotlessCheck
+
+      - name: Build mod
+        run: ./gradlew build
+
+      - name: Get latest commit messages
+        id: commits
+        run: |
+          echo "log<<EOF" >> $GITHUB_OUTPUT
+          git log -n 20 --pretty=format:"- %h %s" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Get JAR file name
+        id: jar
+        run: |
+          JAR=$(ls build/libs/*.jar | head -n 1)
+          echo "file=$JAR" >> $GITHUB_OUTPUT
+
+      - name: Delete old release
+        uses: dev-drprasad/delete-tag-and-release@v1.1
+        continue-on-error: true
+        with:
+          tag_name: latest-autobuild
+          delete_release: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest-autobuild
+          name: "Latest Autobuild"
+          files: ${{ steps.jar.outputs.file }}
+          body: |
+            # Latest Autobuild
+
+            This is an automatic build from the latest commit on `master`.
+
+            ---
+
+            ${{ steps.commits.outputs.log }}
+
+            ---
+
+            ⚠️ This build is automatically generated
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
