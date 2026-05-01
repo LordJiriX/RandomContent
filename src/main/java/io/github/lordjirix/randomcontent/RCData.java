@@ -31,12 +31,14 @@ public class RCData {
               RCItems.STEEL_DUST,
               RCItems.STEEL_INGOT,
               RCItems.IRON_DUST,
-              RCItems.SIMPLE_GRINDER));
+              RCItems.SIMPLE_GRINDER,
+              RCItems.TIME_NUGGET,
+              RCItems.TIME_INGOT));
 
   public static final ArrayList<RegistryObject<Block>> allBlockItemsList =
       new ArrayList<>(
           List.of(
-              RCBlocks.BEDROCK_MINER_BLOCK, RCBlocks.ELEVATOR_BLOCK, RCBlocks.GREENHOUSE_BLOCK));
+              RCBlocks.BEDROCK_MINER_BLOCK, RCBlocks.ELEVATOR_BLOCK, RCBlocks.GREENHOUSE_BLOCK,RCBlocks.TIME_COMPRESSOR_BLOCK));
 
   // Lootbags data
   public static List<Item> exampleLootbagDrops =

@@ -58,7 +58,7 @@ public class BlockBedrockMiner extends Block implements EntityBlock {
       pTooltip.add(Component.literal("§2Energy: §1" + Config.bedrockMinerRfUsage + " §rRF/t§r"));
       return;
     }
-    pTooltip.add(Component.literal("press §oSHIFT§r for more info§r"));
+    pTooltip.add(Component.literal("press §o§lSHIFT§r for more info§r"));
     super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
   }
 

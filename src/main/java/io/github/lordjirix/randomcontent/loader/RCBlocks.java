@@ -5,6 +5,7 @@ import static io.github.lordjirix.randomcontent.Randomcontent.MODID;
 import io.github.lordjirix.randomcontent.common.block.BlockBedrockMiner;
 import io.github.lordjirix.randomcontent.common.block.BlockElevator;
 import io.github.lordjirix.randomcontent.common.block.BlockGreenHouse;
+import io.github.lordjirix.randomcontent.common.block.TimeCompressorBlock;
 import java.util.function.Supplier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -33,6 +34,10 @@ public class RCBlocks {
       createBlock(
           "elevator_block",
           () -> new BlockElevator(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
+  public static final RegistryObject<Block> TIME_COMPRESSOR_BLOCK =
+      createBlock(
+          "time_compressor_block",
+          () -> new TimeCompressorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
 
   private static <T extends Block> RegistryObject<T> createBlock(String name, Supplier<T> block) {
     RegistryObject<T> toReturn = BLOCKS.register(name, block);

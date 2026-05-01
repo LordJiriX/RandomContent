@@ -33,6 +33,8 @@ public class RCItemModelGen extends ItemModelProvider {
     simpleItem(RCItems.STEEL_DUST);
     simpleItem(RCItems.STEEL_INGOT);
     simpleItem(RCItems.IRON_DUST);
+    simpleItem(RCItems.TIME_NUGGET);
+    simpleItem(RCItems.TIME_INGOT);
   }
 
   @SuppressWarnings("removal")

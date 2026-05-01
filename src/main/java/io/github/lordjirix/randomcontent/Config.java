@@ -22,7 +22,7 @@ public class Config {
 
   private static final ForgeConfigSpec.IntValue BEDROCK_MINER_RF_USAGE =
       BUILDER
-          .comment("A amout of RF/t used while Bedrock Miner work")
+          .comment("A amount of RF/t used while Bedrock Miner work")
           .defineInRange("bedrock_miner_RFt", 120, 20, Integer.MAX_VALUE);
 
   private static final ForgeConfigSpec.IntValue BEDROCK_MINER_WORK_TIME =
@@ -36,12 +36,22 @@ public class Config {
 
   private static final ForgeConfigSpec.IntValue GREEN_HOUSE_RF_USAGE =
       BUILDER
-          .comment("A amout of RF/t used while Green House work")
+          .comment("A amount of RF/t used while Green House work")
           .defineInRange("green_house_RFt", 60, 20, Integer.MAX_VALUE);
   private static final ForgeConfigSpec.IntValue GREEN_HOUSE_GROW_TIME =
       BUILDER
           .comment("Time (in ticks) to grow a crop in Green House")
           .defineInRange("green_house_time", 2400, 20, Integer.MAX_VALUE);
+
+  private static final ForgeConfigSpec.IntValue TIMECOMPRESSOR_RF_USAGE =
+      BUILDER
+          .comment("A amount of RF/t used while Time Compressor work")
+          .defineInRange("timecompressor_house_RFt", 60, 20, Integer.MAX_VALUE);
+
+  private static final ForgeConfigSpec.IntValue TIME_PER_TIME_NUGGET =
+      BUILDER
+          .comment("Time (in ticks) to create a time nugget in Time Compressor")
+          .defineInRange("time_per_time_nugget", 200, 20, Integer.MAX_VALUE);
 
   public static final ForgeConfigSpec.BooleanValue GAME_MODE_SWAPPER_OWNER =
       BUILDER
@@ -63,6 +73,8 @@ public class Config {
   public static int bedrockMinerWorkTime;
   public static int greenHouseRfUsage;
   public static int greenHouseGrowTime;
+  public static int timeCompressorRfUsage;
+  public static int timePerTimeNugget;
 
   private static boolean validateItemName(final Object obj) {
     return obj instanceof final String itemName
@@ -83,5 +95,7 @@ public class Config {
     bedrockMinerWorkTime = BEDROCK_MINER_WORK_TIME.get();
     greenHouseRfUsage = GREEN_HOUSE_RF_USAGE.get();
     greenHouseGrowTime = GREEN_HOUSE_GROW_TIME.get();
+    timeCompressorRfUsage = TIMECOMPRESSOR_RF_USAGE.get();
+    timePerTimeNugget = TIME_PER_TIME_NUGGET.get();
   }
 }

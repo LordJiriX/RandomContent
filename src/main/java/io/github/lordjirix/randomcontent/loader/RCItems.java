@@ -47,6 +47,10 @@ public class RCItems {
       ITEMS.register("iron_dust", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> SIMPLE_GRINDER =
       ITEMS.register("simple_grinder", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> TIME_NUGGET =
+      ITEMS.register("time_nugget", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> TIME_INGOT =
+      ITEMS.register("time_ingot", () -> new Item(new Item.Properties()));
 
   public static void init(IEventBus bus) {
     ITEMS.register(bus);

@@ -28,9 +28,17 @@ public class RCLangGen extends LanguageProvider {
     add(RCItems.PROCESSING_CORE_T2.get(), "Processing Core T2");
     add(RCItems.BEDROCKIUM_DRILL.get(), "Bedrockium Drill");
     add(RCItems.DIAMOND_DRILL.get(), "Diamond Drill");
+    add(RCItems.STEEL_DUST.get(), "Steel Dust");
+    add(RCItems.STEEL_INGOT.get(), "Steel Ingot");
+    add(RCItems.IRON_DUST.get(), "Iron Dust");
+    add(RCItems.TIME_NUGGET.get(), "Time Nugget");
+    add(RCItems.TIME_INGOT.get(), "Time Ingot");
     // tools
     add(RCItems.MULTI_TOOL.get(), "Multi Tool");
+    add(RCItems.SIMPLE_GRINDER.get(), "Simple Grinder");
     // blocks
     add(new ItemStack(RCBlocks.BEDROCK_MINER_BLOCK.get()), "Bedrock Miner");
+    add(new ItemStack(RCBlocks.GREENHOUSE_BLOCK.get()), "Green House");
+    add(new ItemStack(RCBlocks.TIME_COMPRESSOR_BLOCK.get()), "Time Compressor");
   }
 }

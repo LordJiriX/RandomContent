@@ -4,6 +4,7 @@ import static io.github.lordjirix.randomcontent.Randomcontent.MODID;
 
 import io.github.lordjirix.randomcontent.common.entity.BedrockMinerBlockEntity;
 import io.github.lordjirix.randomcontent.common.entity.GreenHouseBlockEntity;
+import io.github.lordjirix.randomcontent.common.entity.TimeCompressorBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -29,6 +30,14 @@ public class RCBlockEntitys {
               () ->
                   BlockEntityType.Builder.of(
                           GreenHouseBlockEntity::new, RCBlocks.GREENHOUSE_BLOCK.get())
+                      .build(null));
+  public static final RegistryObject<BlockEntityType<TimeCompressorBlockEntity>>
+      TIME_COMPRESSOR_BLOCK_ENTITY =
+          BLOCK_ENTITIES.register(
+              "time_compressor_block",
+              () ->
+                  BlockEntityType.Builder.of(
+                          TimeCompressorBlockEntity::new, RCBlocks.TIME_COMPRESSOR_BLOCK.get())
                       .build(null));
 
   public static void init(IEventBus bus) {
