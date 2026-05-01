@@ -50,18 +50,15 @@ public class BlockBedrockMiner extends Block implements EntityBlock {
         };
   }
 
-  // TODO: make it way better
   @Override
   public void appendHoverText(
       ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
+    pTooltip.add(Component.literal("Stronger then §nSteve§r"));
     if (Screen.hasShiftDown()) {
-      pTooltip.add(Component.literal("Requires bedrock below to work§r"));
-      pTooltip.add(Component.literal("Bedrock -> Bedrockium Dust§r"));
+      pTooltip.add(Component.literal("§2Energy: §1" + Config.bedrockMinerRfUsage + " §rRF/t§r"));
       return;
     }
-    pTooltip.add(Component.literal("- can mine bedrock - §r"));
-    pTooltip.add(Component.literal("RF usage: " + Config.bedrockMinerRfUsage + " RF/t§r"));
-    pTooltip.add(Component.literal("press §oshift§r for more info§r"));
+    pTooltip.add(Component.literal("press §oSHIFT§r for more info§r"));
     super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
   }
 

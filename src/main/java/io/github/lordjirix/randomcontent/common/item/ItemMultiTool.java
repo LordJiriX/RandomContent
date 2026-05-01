@@ -91,6 +91,7 @@ public class ItemMultiTool extends Item {
   @Override
   public void appendHoverText(
       ItemStack p_41421_, @Nullable Level p_41422_, List<Component> tooltip, TooltipFlag p_41424_) {
+    tooltip.add(Component.literal("No more tool switching!"));
     tooltip.add(Component.translatable("Mode: " + getMode(p_41421_)));
     super.appendHoverText(p_41421_, p_41422_, tooltip, p_41424_);
   }
