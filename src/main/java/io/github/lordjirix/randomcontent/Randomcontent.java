@@ -3,7 +3,6 @@ package io.github.lordjirix.randomcontent;
 import static io.github.lordjirix.randomcontent.loader.RCItems.*;
 
 import com.mojang.logging.LogUtils;
-import io.github.lordjirix.randomcontent.gui.screen.BedrockMinerScreen;
 import io.github.lordjirix.randomcontent.gui.screen.GreenHouseScreen;
 import io.github.lordjirix.randomcontent.gui.screen.SimpleOneScreen;
 import io.github.lordjirix.randomcontent.loader.*;
@@ -108,7 +107,6 @@ public class Randomcontent {
     public static void registerScreens(FMLClientSetupEvent event) {
       event.enqueueWork(
           () -> {
-            MenuScreens.register(RCMenus.BEDROCK_MINER.get(), BedrockMinerScreen::new);
             MenuScreens.register(RCMenus.GREEN_HOUSE.get(), GreenHouseScreen::new);
             MenuScreens.register(RCMenus.SIMPLE_ONESLOT_MENU.get(), SimpleOneScreen::new);
           });

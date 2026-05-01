@@ -24,10 +24,10 @@ public class GreenHouseScreen extends AbstractContainerScreen<GreenHouseMenu> {
     pGuiGraphics.blit(TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight);
   }
 
-    @Override
-    public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-      renderBg(pGuiGraphics, pPartialTick, pMouseX, pMouseY);
-      super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
-      renderTooltip(pGuiGraphics, pMouseX, pMouseY);
-    }
+  @Override
+  public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+    renderBg(pGuiGraphics, pPartialTick, pMouseX, pMouseY);
+    super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
+    renderTooltip(pGuiGraphics, pMouseX, pMouseY);
+  }
 }

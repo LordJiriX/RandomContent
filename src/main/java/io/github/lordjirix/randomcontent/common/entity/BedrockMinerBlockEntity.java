@@ -1,7 +1,6 @@
 package io.github.lordjirix.randomcontent.common.entity;
 
 import io.github.lordjirix.randomcontent.Config;
-import io.github.lordjirix.randomcontent.gui.menu.BedrockMinerMenu;
 import io.github.lordjirix.randomcontent.gui.menu.SimpleOneMenu;
 import io.github.lordjirix.randomcontent.loader.RCBlockEntitys;
 import io.github.lordjirix.randomcontent.loader.RCItems;

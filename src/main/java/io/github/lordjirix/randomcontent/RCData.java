@@ -28,12 +28,11 @@ public class RCData {
               RCItems.PROCESSING_CORE_T1,
               RCItems.PROCESSING_CORE_T2,
               RCItems.BEDROCKIUM_DUST,
-                  RCItems.STEEL_DUST,
-                  RCItems.STEEL_INGOT,
-                  RCItems.IRON_DUST,
-                  RCItems.SIMPLE_GRINDER
+              RCItems.STEEL_DUST,
+              RCItems.STEEL_INGOT,
+              RCItems.IRON_DUST,
+              RCItems.SIMPLE_GRINDER));
 
-          ));
   public static final ArrayList<RegistryObject<Block>> allBlockItemsList =
       new ArrayList<>(
           List.of(
@@ -59,38 +58,32 @@ public class RCData {
               Items.SPRUCE_SAPLING,
               new GreenHouseRecipe(
                   new ItemStack[] {
-                    new ItemStack(Items.SPRUCE_LOG, 12),
-                    new ItemStack(Items.SPRUCE_LEAVES, 4)
+                    new ItemStack(Items.SPRUCE_LOG, 12), new ItemStack(Items.SPRUCE_LEAVES, 4)
                   }));
           put(
-                Items.BIRCH_SAPLING,
-                new GreenHouseRecipe(
-                    new ItemStack[] {
-                        new ItemStack(Items.BIRCH_LOG, 6),
-                        new ItemStack(Items.BIRCH_LEAVES, 4)
-                    }));
+              Items.BIRCH_SAPLING,
+              new GreenHouseRecipe(
+                  new ItemStack[] {
+                    new ItemStack(Items.BIRCH_LOG, 6), new ItemStack(Items.BIRCH_LEAVES, 4)
+                  }));
           put(
-                Items.JUNGLE_SAPLING,
-                new GreenHouseRecipe(
-                    new ItemStack[] {
-                        new ItemStack(Items.JUNGLE_LOG, 16),
-                        new ItemStack(Items.JUNGLE_LEAVES, 8)
-                    }));
+              Items.JUNGLE_SAPLING,
+              new GreenHouseRecipe(
+                  new ItemStack[] {
+                    new ItemStack(Items.JUNGLE_LOG, 16), new ItemStack(Items.JUNGLE_LEAVES, 8)
+                  }));
           put(
-                Items.ACACIA_SAPLING,
-                new GreenHouseRecipe(
-                    new ItemStack[] {
-                        new ItemStack(Items.ACACIA_LOG, 8),
-                        new ItemStack(Items.ACACIA_LEAVES, 4)
-                    }));
+              Items.ACACIA_SAPLING,
+              new GreenHouseRecipe(
+                  new ItemStack[] {
+                    new ItemStack(Items.ACACIA_LOG, 8), new ItemStack(Items.ACACIA_LEAVES, 4)
+                  }));
           put(
-                Items.DARK_OAK_SAPLING,
-                new GreenHouseRecipe(
-                    new ItemStack[] {
-                        new ItemStack(Items.DARK_OAK_LOG, 10),
-                        new ItemStack(Items.DARK_OAK_LEAVES, 4)
-                    }));
+              Items.DARK_OAK_SAPLING,
+              new GreenHouseRecipe(
+                  new ItemStack[] {
+                    new ItemStack(Items.DARK_OAK_LOG, 10), new ItemStack(Items.DARK_OAK_LEAVES, 4)
+                  }));
         }
       };
-
 }
