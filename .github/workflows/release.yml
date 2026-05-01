@@ -37,9 +37,12 @@ jobs:
       - name: Get latest commit messages
         id: commits
         run: |
-          echo "log<<EOF" >> $GITHUB_OUTPUT
-          git log -n 20 --pretty=format:"- %h %s" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          commits=$(git log -n 20 --pretty=format:"- %h %s")
+          {
+            echo "log<<EOF"
+            echo "$commits"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
 
       - name: Get JAR file name
         id: jar
