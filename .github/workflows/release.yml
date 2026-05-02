@@ -2,7 +2,7 @@ name: Auto Release
 
 on:
   schedule:
-    - cron: "0 0 */7 * *"
+    - cron: "0 0 */4 * *"
 
 jobs:
   build-and-release:
@@ -42,7 +42,11 @@ jobs:
             echo "$commits"
             echo "EOF"
           } >> $GITHUB_OUTPUT
-
+          
+      - name: Get build date
+        id: date
+        run: echo "date=$(date -u +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+          
       - name: Get JAR file name
         id: jar
         run: |
@@ -66,7 +70,7 @@ jobs:
           prerelease: true
           files: ${{ steps.jar.outputs.file }}
           body: |
-            # Latest Autobuild
+            # Latest Autobuild - ${{ steps.date.outputs.date }}
 
             This is an automatic build from the latest commit on `master`.
 
