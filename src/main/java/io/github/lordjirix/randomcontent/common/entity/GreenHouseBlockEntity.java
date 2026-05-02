@@ -13,7 +13,6 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -138,12 +137,7 @@ public class GreenHouseBlockEntity extends BlockEntity implements IRecipeRunnabl
   }
 
   public boolean hasRecipe(ItemStack stack) {
-    for (Item in : RCData.greenHouseRecipes.keySet()) {
-      if (stack.getItem() == in) {
-        return true;
-      }
-      return false;
-    }
-    return false;
+    if (stack == null || stack.isEmpty()) return false;
+    return RCData.greenHouseRecipes.containsKey(stack.getItem());
   }
 }
