@@ -29,5 +29,11 @@ public class DataGenMain {
         .addProvider(
             event.includeClient(),
             (DataProvider.Factory<RCLangGen>) outpu -> new RCLangGen(outpu, MOD_ID, "en_us"));
+    RCBlockTagGen btg =
+        gen.addProvider(
+            event.includeServer(), new RCBlockTagGen(output, lookupProvider, existingFileHelper));
+    gen.addProvider(
+        event.includeServer(),
+        new RCItemTagGen(output, lookupProvider, btg.contentsGetter(), existingFileHelper));
   }
 }

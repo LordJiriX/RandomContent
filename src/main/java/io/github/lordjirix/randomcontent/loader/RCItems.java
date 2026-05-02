@@ -7,6 +7,7 @@ import io.github.lordjirix.randomcontent.common.item.ItemGameModeSwapper;
 import io.github.lordjirix.randomcontent.common.item.ItemLootBag;
 import io.github.lordjirix.randomcontent.common.item.ItemMultiTool;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -46,7 +47,25 @@ public class RCItems {
   public static final RegistryObject<Item> IRON_DUST =
       ITEMS.register("iron_dust", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> SIMPLE_GRINDER =
-      ITEMS.register("simple_grinder", () -> new Item(new Item.Properties()));
+      ITEMS.register(
+          "simple_grinder",
+          () ->
+              new Item(new Item.Properties().durability(64 * 2)) {
+                @Override
+                public boolean hasCraftingRemainingItem(ItemStack stack) {
+                  return true;
+                }
+
+                @Override
+                public ItemStack getCraftingRemainingItem(ItemStack stack) {
+                  ItemStack copy = stack.copy();
+                  copy.setDamageValue(copy.getDamageValue() + 1);
+                  if (copy.getDamageValue() >= copy.getMaxDamage()) {
+                    return ItemStack.EMPTY;
+                  }
+                  return copy;
+                }
+              });
   public static final RegistryObject<Item> TIME_NUGGET =
       ITEMS.register("time_nugget", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> TIME_INGOT =

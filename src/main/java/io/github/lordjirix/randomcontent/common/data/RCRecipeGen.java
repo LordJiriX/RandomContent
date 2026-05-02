@@ -36,6 +36,11 @@ public class RCRecipeGen extends RecipeProvider implements IConditionBuilder {
         .define('I', Items.IRON_INGOT)
         .unlockedBy(getHasName(Blocks.STONE), has(Items.IRON_INGOT))
         .save(pw);
+    ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, RCItems.IRON_DUST.get())
+        .requires(Items.IRON_INGOT)
+        .requires(RCItems.SIMPLE_GRINDER.get())
+        .unlockedBy(getHasName(RCItems.SIMPLE_GRINDER.get()), has(Items.IRON_INGOT))
+        .save(pw, new ResourceLocation(MODID, "iron_dust_simple_grinder"));
     SimpleCookingRecipeBuilder.smelting(
             Ingredient.of(RCItems.BEDROCKIUM_DUST.get()),
             RecipeCategory.MISC,
