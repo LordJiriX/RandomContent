@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_simple_grinder": {
+    "has_steel_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "randomcontent:simple_grinder"
+              "randomcontent:steel_dust"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "randomcontent:iron_dust_simple_grinder"
+        "recipe": "randomcontent:smelting/steel_ingot_from_dust"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_simple_grinder",
+      "has_steel_dust",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "randomcontent:iron_dust_simple_grinder"
+      "randomcontent:smelting/steel_ingot_from_dust"
     ]
   },
   "sends_telemetry_event": false

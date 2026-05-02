@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_simple_grinder": {
+    "has_iron_dust": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "randomcontent:simple_grinder"
-            ]
+            "tag": "forge:dusts/iron"
           }
         ]
       },
@@ -15,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "randomcontent:iron_dust_simple_grinder"
+        "recipe": "randomcontent:steel_dust_crafting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_simple_grinder",
+      "has_iron_dust",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "randomcontent:iron_dust_simple_grinder"
+      "randomcontent:steel_dust_crafting"
     ]
   },
   "sends_telemetry_event": false

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 160,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "randomcontent:steel_dust"
+  },
+  "result": "randomcontent:steel_ingot"
+}

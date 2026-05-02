@@ -70,6 +70,10 @@ public class RCItems {
       ITEMS.register("time_nugget", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> TIME_INGOT =
       ITEMS.register("time_ingot", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> COAL_DUST =
+      ITEMS.register("coal_dust", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> CHARCOAL_DUST =
+      ITEMS.register("charcoal_dust", () -> new Item(new Item.Properties()));
 
   public static void init(IEventBus bus) {
     ITEMS.register(bus);

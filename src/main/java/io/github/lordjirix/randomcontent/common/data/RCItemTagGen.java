@@ -26,5 +26,9 @@ public class RCItemTagGen extends ItemTagsProvider {
   protected void addTags(HolderLookup.Provider pProvider) {
     this.tag(RCTags.I.IRON_DUST).add(RCItems.IRON_DUST.get());
     this.tag(RCTags.I.STEEL_INGOT).add(RCItems.STEEL_INGOT.get());
+
+    this.tag(RCTags.I.CARBON_BASE_DUST)
+        .add(RCItems.COAL_DUST.get())
+        .add(RCItems.CHARCOAL_DUST.get());
   }
 }

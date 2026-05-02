@@ -1,5 +1,6 @@
 package io.github.lordjirix.randomcontent.common.data;
 
+import io.github.lordjirix.randomcontent.RCData;
 import io.github.lordjirix.randomcontent.Randomcontent;
 import io.github.lordjirix.randomcontent.loader.RCItems;
 import net.minecraft.data.PackOutput;
@@ -19,22 +20,11 @@ public class RCItemModelGen extends ItemModelProvider {
   @Override
   protected void registerModels() {
     simpleItem(RCItems.MULTI_TOOL);
-    simpleItem(RCItems.GAME_MODE_SWAPPER);
-    simpleItem(RCItems.EXAMPLE_LOOTBAG);
-    simpleItem(RCItems.SIMPLE_GRINDER);
     // Materials ++ Parts
-    simpleItem(RCItems.BEDROCKIUM_INGOT);
-    simpleItem(RCItems.BEDROCKIUM_DRILL);
-    simpleItem(RCItems.BEDROCKIUM_DUST);
-    simpleItem(RCItems.LASER_CORE);
-    simpleItem(RCItems.PROCESSING_CORE_T1);
-    simpleItem(RCItems.PROCESSING_CORE_T2);
-    simpleItem(RCItems.DIAMOND_DRILL);
-    simpleItem(RCItems.STEEL_DUST);
-    simpleItem(RCItems.STEEL_INGOT);
-    simpleItem(RCItems.IRON_DUST);
-    simpleItem(RCItems.TIME_NUGGET);
-    simpleItem(RCItems.TIME_INGOT);
+    RCData.allItemList.forEach(
+        item -> {
+          simpleItem(item);
+        });
   }
 
   @SuppressWarnings("removal")

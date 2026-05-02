@@ -33,7 +33,9 @@ public class RCData {
               RCItems.IRON_DUST,
               RCItems.SIMPLE_GRINDER,
               RCItems.TIME_NUGGET,
-              RCItems.TIME_INGOT));
+              RCItems.TIME_INGOT,
+              RCItems.CHARCOAL_DUST,
+              RCItems.COAL_DUST));
 
   public static final ArrayList<RegistryObject<Block>> allBlockItemsList =
       new ArrayList<>(

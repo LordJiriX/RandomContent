@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "randomcontent:iron_dust_simple_grinder"
+        "recipe": "randomcontent:charcoal_dust_simple_grinder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "randomcontent:iron_dust_simple_grinder"
+      "randomcontent:charcoal_dust_simple_grinder"
     ]
   },
   "sends_telemetry_event": false
