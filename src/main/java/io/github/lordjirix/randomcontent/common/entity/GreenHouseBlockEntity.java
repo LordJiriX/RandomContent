@@ -43,7 +43,7 @@ public class GreenHouseBlockEntity extends BlockEntity implements IRecipeRunnabl
   private final LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> inventory);
 
   public GreenHouseBlockEntity(BlockPos pos, BlockState state) {
-    super(RCBlockEntitys.GREENHOUSE_BLOCK_ENTITY.get(), pos, state);
+    super(RCBlockEntitys.GREENHOUSE_BLOCK_ENTITY_1.get(), pos, state);
   }
 
   @Override

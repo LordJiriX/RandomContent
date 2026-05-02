@@ -38,7 +38,7 @@ public class RCLangGen extends LanguageProvider {
     add(RCItems.SIMPLE_GRINDER.get(), "Simple Grinder");
     // blocks
     add(new ItemStack(RCBlocks.BEDROCK_MINER_BLOCK.get()), "Bedrock Miner");
-    add(new ItemStack(RCBlocks.GREENHOUSE_BLOCK.get()), "Green House");
-    add(new ItemStack(RCBlocks.TIME_COMPRESSOR_BLOCK.get()), "Time Compressor");
+    add(new ItemStack(RCBlocks.GREENHOUSE_BLOCK_1.get()), "Green House I");
+    add(new ItemStack(RCBlocks.TIME_COMPRESSOR_BLOCK_1.get()), "Time Compressor I");
   }
 }

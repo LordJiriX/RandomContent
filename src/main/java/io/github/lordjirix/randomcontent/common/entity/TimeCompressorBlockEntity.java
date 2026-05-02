@@ -43,7 +43,7 @@ public class TimeCompressorBlockEntity extends BlockEntity
   private final LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> inventory);
 
   public TimeCompressorBlockEntity(BlockPos pos, BlockState state) {
-    super(RCBlockEntitys.TIME_COMPRESSOR_BLOCK_ENTITY.get(), pos, state);
+    super(RCBlockEntitys.TIME_COMPRESSOR_BLOCK_ENTITY_1.get(), pos, state);
   }
 
   public void tick() {

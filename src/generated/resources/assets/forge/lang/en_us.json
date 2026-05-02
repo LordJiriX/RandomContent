@@ -1,7 +1,7 @@
 {
   "block.randomcontent.bedrock_miner_block": "Bedrock Miner",
-  "block.randomcontent.greenhouse_block": "Green House",
-  "block.randomcontent.time_compressor_block": "Time Compressor",
+  "block.randomcontent.greenhouse_block_1": "Green House I",
+  "block.randomcontent.time_compressor_block_1": "Time Compressor I",
   "config.jade.plugin_randomcontent.bedrock_miner": "Bedrock Miner",
   "config.jade.plugin_randomcontent.recipe_runner_base": "RC Recipe Runner (Base)",
   "item.randomcontent.bedrockium_drill": "Bedrockium Drill",

@@ -38,7 +38,10 @@ public class RCData {
   public static final ArrayList<RegistryObject<Block>> allBlockItemsList =
       new ArrayList<>(
           List.of(
-              RCBlocks.BEDROCK_MINER_BLOCK, RCBlocks.ELEVATOR_BLOCK, RCBlocks.GREENHOUSE_BLOCK,RCBlocks.TIME_COMPRESSOR_BLOCK));
+              RCBlocks.BEDROCK_MINER_BLOCK,
+              RCBlocks.ELEVATOR_BLOCK,
+              RCBlocks.GREENHOUSE_BLOCK_1,
+              RCBlocks.TIME_COMPRESSOR_BLOCK_1));
 
   // Lootbags data
   public static List<Item> exampleLootbagDrops =

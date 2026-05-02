@@ -5,7 +5,7 @@
     "south": "randomcontent:block/time_compressor_side",
     "east": "randomcontent:block/time_compressor_side",
     "west": "randomcontent:block/time_compressor_side",
-    "up": "randomcontent:block/machine_casing",
-    "down": "randomcontent:block/machine_casing"
+    "up": "randomcontent:block/machine_casing_steel",
+    "down": "randomcontent:block/machine_casing_steel"
   }
 }

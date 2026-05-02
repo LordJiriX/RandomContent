@@ -24,20 +24,20 @@ public class RCBlockEntitys {
                           BedrockMinerBlockEntity::new, RCBlocks.BEDROCK_MINER_BLOCK.get())
                       .build(null));
   public static final RegistryObject<BlockEntityType<GreenHouseBlockEntity>>
-      GREENHOUSE_BLOCK_ENTITY =
+      GREENHOUSE_BLOCK_ENTITY_1 =
           BLOCK_ENTITIES.register(
-              "greenhouse_block",
+              "greenhouse_block_1",
               () ->
                   BlockEntityType.Builder.of(
-                          GreenHouseBlockEntity::new, RCBlocks.GREENHOUSE_BLOCK.get())
+                          GreenHouseBlockEntity::new, RCBlocks.GREENHOUSE_BLOCK_1.get())
                       .build(null));
   public static final RegistryObject<BlockEntityType<TimeCompressorBlockEntity>>
-      TIME_COMPRESSOR_BLOCK_ENTITY =
+      TIME_COMPRESSOR_BLOCK_ENTITY_1 =
           BLOCK_ENTITIES.register(
-              "time_compressor_block",
+              "time_compressor_block_1",
               () ->
                   BlockEntityType.Builder.of(
-                          TimeCompressorBlockEntity::new, RCBlocks.TIME_COMPRESSOR_BLOCK.get())
+                          TimeCompressorBlockEntity::new, RCBlocks.TIME_COMPRESSOR_BLOCK_1.get())
                       .build(null));
 
   public static void init(IEventBus bus) {

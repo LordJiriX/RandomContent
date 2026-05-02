@@ -26,17 +26,17 @@ public class RCBlocks {
       createBlock(
           "bedrock_miner_block",
           () -> new BlockBedrockMiner(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
-  public static final RegistryObject<Block> GREENHOUSE_BLOCK =
+  public static final RegistryObject<Block> GREENHOUSE_BLOCK_1 =
       createBlock(
-          "greenhouse_block",
+          "greenhouse_block_1",
           () -> new BlockGreenHouse(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
   public static final RegistryObject<Block> ELEVATOR_BLOCK =
       createBlock(
           "elevator_block",
           () -> new BlockElevator(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
-  public static final RegistryObject<Block> TIME_COMPRESSOR_BLOCK =
+  public static final RegistryObject<Block> TIME_COMPRESSOR_BLOCK_1 =
       createBlock(
-          "time_compressor_block",
+          "time_compressor_block_1",
           () -> new TimeCompressorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
 
   private static <T extends Block> RegistryObject<T> createBlock(String name, Supplier<T> block) {

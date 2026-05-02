@@ -1,11 +1,11 @@
 {
   "parent": "block/cube",
   "textures": {
-    "north": "randomcontent:block/machine_casing",
-    "south": "randomcontent:block/machine_casing",
-    "east": "randomcontent:block/machine_casing",
-    "west": "randomcontent:block/machine_casing",
+    "north": "randomcontent:block/machine_casing_steel",
+    "south": "randomcontent:block/machine_casing_steel",
+    "east": "randomcontent:block/machine_casing_steel",
+    "west": "randomcontent:block/machine_casing_steel",
     "up": "randomcontent:block/greenhouse_top",
-    "down": "randomcontent:block/machine_casing"
+    "down": "randomcontent:block/machine_casing_steel"
   }
 }
