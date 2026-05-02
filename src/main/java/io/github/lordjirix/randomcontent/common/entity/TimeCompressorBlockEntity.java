@@ -29,7 +29,7 @@ import org.jetbrains.annotations.Nullable;
 public class TimeCompressorBlockEntity extends BlockEntity
     implements MenuProvider, IRecipeRunnable {
   public int timeToRunRecipe = Config.timePerTimeNugget;
-  public int currentRunTime = timeToRunRecipe;
+  public int currentRunTime = 0;
   public int energyPerTick = Config.timeCompressorRfUsage;
   private final ItemStackHandler inventory =
       new ItemStackHandler(1) {
@@ -49,18 +49,17 @@ public class TimeCompressorBlockEntity extends BlockEntity
   public void tick() {
     if (level == null || level.isClientSide()) return;
     if (inventory.getStackInSlot(0).getCount() == 64) {
-      currentRunTime = timeToRunRecipe;
+      currentRunTime = 0;
       return;
     }
     if (energy.getEnergyStored() < energyPerTick) return;
     energy.extractEnergy(energyPerTick, false);
-    currentRunTime--;
-    if (currentRunTime <= 0) {
-      currentRunTime = timeToRunRecipe;
+    currentRunTime++;
+    if (currentRunTime >= timeToRunRecipe) {
+      currentRunTime = 0;
       ItemStack output = new ItemStack(RCItems.TIME_NUGGET.get(), 1);
       inventory.insertItem(0, output, false);
       setChanged();
-      return;
     }
   }
 

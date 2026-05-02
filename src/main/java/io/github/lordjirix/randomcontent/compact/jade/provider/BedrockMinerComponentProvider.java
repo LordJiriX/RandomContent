@@ -19,7 +19,7 @@ public enum BedrockMinerComponentProvider
 
   @Override
   public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
-    if (accessor.getServerData().contains("workTime")) {
+    if (accessor.getServerData().contains("timeToRunRecipe")) {
       if (!accessor.getServerData().getBoolean("isValid")) {
         tooltip.add(Component.literal("Valid: " + accessor.getServerData().getBoolean("isValid")));
         return;
@@ -27,9 +27,9 @@ public enum BedrockMinerComponentProvider
       tooltip.add(
           Component.literal(
               "Time: "
-                  + accessor.getServerData().getInt("timeToFinish") / 20
+                  + accessor.getServerData().getInt("currentRunTime") / 20
                   + "/"
-                  + accessor.getServerData().getInt("workTime") / 20
+                  + accessor.getServerData().getInt("timeToRunRecipe") / 20
                   + " s"));
       tooltip.add(Component.literal("RF/t: " + accessor.getServerData().getInt("RFUsage")));
     }
@@ -38,9 +38,9 @@ public enum BedrockMinerComponentProvider
   @Override
   public void appendServerData(CompoundTag data, BlockAccessor accessor) {
     BedrockMinerBlockEntity furnace = (BedrockMinerBlockEntity) accessor.getBlockEntity();
-    data.putInt("workTime", furnace.workTime);
+    data.putInt("timeToRunRecipe", furnace.timeToRunRecipe);
     data.putBoolean("isValid", furnace.isValid);
-    data.putInt("timeToFinish", furnace.timeToFinish);
+    data.putInt("currentRunTime", furnace.currentRunTime);
     data.putInt("RFUsage", Config.bedrockMinerRfUsage);
   }
 

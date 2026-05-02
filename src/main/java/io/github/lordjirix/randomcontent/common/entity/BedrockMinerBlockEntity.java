@@ -29,8 +29,8 @@ import org.jetbrains.annotations.Nullable;
 public class BedrockMinerBlockEntity extends BlockEntity implements MenuProvider {
 
   public boolean isValid;
-  public int workTime = Config.bedrockMinerWorkTime;
-  public int timeToFinish = workTime;
+  public int timeToRunRecipe = Config.bedrockMinerWorkTime;
+  public int currentRunTime = 0;
   private final ItemStackHandler inventory =
       new ItemStackHandler(1) {
         @Override
@@ -89,23 +89,21 @@ public class BedrockMinerBlockEntity extends BlockEntity implements MenuProvider
     if (energy.getEnergyStored() <= Config.bedrockMinerRfUsage) {
       return;
     }
-    timeToFinish--;
+    currentRunTime++;
     energy.extractEnergy(Config.bedrockMinerRfUsage, false);
     setChanged();
-    if (getTimeToFinish() <= 0) {
+    if (currentRunTime >= timeToRunRecipe) {
       inventory.insertItem(0, new ItemStack(RCItems.BEDROCKIUM_DUST.get()), false);
       reset();
       setChanged();
       level.setBlockAndUpdate(worldPosition.below(), Blocks.AIR.defaultBlockState());
-      return;
     }
-    return;
   }
 
   @Override
   protected void saveAdditional(CompoundTag tag) {
-    tag.putInt("timeToFinish", timeToFinish);
-    tag.putInt("workTime", workTime);
+    tag.putInt("currentRunTime", currentRunTime);
+    tag.putInt("timeToRunRecipe", timeToRunRecipe);
     tag.putBoolean("isValid", isValid);
     tag.put("inventory", inventory.serializeNBT());
     super.saveAdditional(tag);
@@ -118,8 +116,8 @@ public class BedrockMinerBlockEntity extends BlockEntity implements MenuProvider
 
   @Override
   public void load(CompoundTag tag) {
-    timeToFinish = tag.getInt("timeToFinish");
-    workTime = tag.getInt("workTime");
+    currentRunTime = tag.getInt("currentRunTime");
+    timeToRunRecipe = tag.getInt("timeToRunRecipe");
     isValid = tag.getBoolean("isValid");
     inventory.deserializeNBT(tag.getCompound("inventory"));
     super.load(tag);
@@ -129,12 +127,8 @@ public class BedrockMinerBlockEntity extends BlockEntity implements MenuProvider
     return isValid = bol;
   }
 
-  public int getTimeToFinish() {
-    return timeToFinish;
-  }
-
   public void reset() {
     isValid = false;
-    timeToFinish = workTime;
+    currentRunTime = 0;
   }
 }
