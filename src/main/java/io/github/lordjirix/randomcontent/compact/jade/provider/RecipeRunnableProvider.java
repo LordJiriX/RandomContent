@@ -22,7 +22,7 @@ public enum RecipeRunnableProvider
     if (blockAccessor.getServerData().contains("timeToRunRecipe")) {
       int currentRunTime = blockAccessor.getServerData().getInt("currentRunTime");
       int timeToRunRecipe = blockAccessor.getServerData().getInt("timeToRunRecipe");
-      if (currentRunTime == timeToRunRecipe) {
+      if (currentRunTime == 0) {
         return;
       }
       iTooltip.add(
