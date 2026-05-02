@@ -27,7 +27,7 @@ public enum RecipeRunnableProvider
       }
       iTooltip.add(
           Component.literal(
-              "Time left: "
+              "Time : "
                   + blockAccessor.getServerData().getInt("currentRunTime") / 20
                   + "/"
                   + blockAccessor.getServerData().getInt("timeToRunRecipe") / 20

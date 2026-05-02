@@ -58,37 +58,49 @@ public class RCData {
                     new ItemStack(Items.OAK_LOG, 8),
                     new ItemStack(Items.OAK_LEAVES, 4),
                     new ItemStack(Items.APPLE, 1)
-                  }));
+                  },
+                  60,
+                  200));
           put(
               Items.SPRUCE_SAPLING,
               new GreenHouseRecipe(
                   new ItemStack[] {
                     new ItemStack(Items.SPRUCE_LOG, 12), new ItemStack(Items.SPRUCE_LEAVES, 4)
-                  }));
+                  },
+                  60,
+                  200));
           put(
               Items.BIRCH_SAPLING,
               new GreenHouseRecipe(
                   new ItemStack[] {
                     new ItemStack(Items.BIRCH_LOG, 6), new ItemStack(Items.BIRCH_LEAVES, 4)
-                  }));
+                  },
+                  60,
+                  200));
           put(
               Items.JUNGLE_SAPLING,
               new GreenHouseRecipe(
                   new ItemStack[] {
                     new ItemStack(Items.JUNGLE_LOG, 16), new ItemStack(Items.JUNGLE_LEAVES, 8)
-                  }));
+                  },
+                  60,
+                  200));
           put(
               Items.ACACIA_SAPLING,
               new GreenHouseRecipe(
                   new ItemStack[] {
                     new ItemStack(Items.ACACIA_LOG, 8), new ItemStack(Items.ACACIA_LEAVES, 4)
-                  }));
+                  },
+                  60,
+                  200));
           put(
               Items.DARK_OAK_SAPLING,
               new GreenHouseRecipe(
                   new ItemStack[] {
                     new ItemStack(Items.DARK_OAK_LOG, 10), new ItemStack(Items.DARK_OAK_LEAVES, 4)
-                  }));
+                  },
+                  60,
+                  200));
         }
       };
 }

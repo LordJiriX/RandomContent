@@ -1,8 +1,8 @@
 package io.github.lordjirix.randomcontent.common.entity;
 
-import io.github.lordjirix.randomcontent.Config;
 import io.github.lordjirix.randomcontent.RCData;
 import io.github.lordjirix.randomcontent.api.block.IRecipeRunnable;
+import io.github.lordjirix.randomcontent.api.data.recipe.GreenHouseRecipe;
 import io.github.lordjirix.randomcontent.gui.menu.GreenHouseMenu;
 import io.github.lordjirix.randomcontent.loader.RCBlockEntitys;
 import net.minecraft.core.BlockPos;
@@ -27,9 +27,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class GreenHouseBlockEntity extends BlockEntity implements IRecipeRunnable, MenuProvider {
-  public int timeToRunRecipe = Config.greenHouseGrowTime;
-  public int currentRunTime = timeToRunRecipe;
-  public int energyPerTick = Config.greenHouseRfUsage;
+  public int timeToRunRecipe = 0;
+  public int currentRunTime = 0;
+  public int energyPerTick = 0;
   private final ItemStackHandler inventory =
       new ItemStackHandler(10) {
         @Override
@@ -69,13 +69,26 @@ public class GreenHouseBlockEntity extends BlockEntity implements IRecipeRunnabl
     if (energy.getEnergyStored() <= energyPerTick) {
       return;
     }
-    if (!hasRecipe(inventory.getStackInSlot(0))) {
-      currentRunTime = timeToRunRecipe;
+    if (inventory.getStackInSlot(0).isEmpty()) {
+      currentRunTime = 0;
+      timeToRunRecipe = 0;
       return;
     }
+    if (!hasRecipe(inventory.getStackInSlot(0))) {
+      currentRunTime = 0;
+      timeToRunRecipe = 0;
+      return;
+    }
+
+    GreenHouseRecipe recipe = RCData.greenHouseRecipes.get(inventory.getStackInSlot(0).getItem());
+    if (recipe == null) {
+      return;
+    }
+    energyPerTick = recipe.getRFPerTick();
+    timeToRunRecipe = recipe.getTimePerRecipe();
     energy.extractEnergy(energyPerTick, false);
-    currentRunTime--;
-    if (currentRunTime <= 0) {
+    currentRunTime++;
+    if (currentRunTime >= timeToRunRecipe) {
       ItemStack[] output = null;
       try {
         output = RCData.greenHouseRecipes.get(inventory.getStackInSlot(0).getItem()).getOutput();
@@ -84,7 +97,8 @@ public class GreenHouseBlockEntity extends BlockEntity implements IRecipeRunnabl
       for (int i = 0; i < output.length; i++) {
         inventory.insertItem(i + 1, output[i].copy(), false);
       }
-      currentRunTime = timeToRunRecipe;
+      currentRunTime = 0;
+      timeToRunRecipe = 0;
       return;
     }
   }
