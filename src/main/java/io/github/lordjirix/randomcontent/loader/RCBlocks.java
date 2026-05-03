@@ -39,6 +39,11 @@ public class RCBlocks {
           "time_compressor_block_1",
           () -> new TimeCompressorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
 
+  public static final RegistryObject<Block> MACHINE_CASING_STEEL =
+      createBlock(
+          "machine_casing_steel",
+          () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
+
   private static <T extends Block> RegistryObject<T> createBlock(String name, Supplier<T> block) {
     RegistryObject<T> toReturn = BLOCKS.register(name, block);
     createBlockItem(name, toReturn);

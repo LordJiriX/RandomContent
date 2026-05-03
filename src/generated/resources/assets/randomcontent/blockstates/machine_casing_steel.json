@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "randomcontent:block/machine_casing_steel"
+    }
+  }
+}

@@ -22,6 +22,7 @@ public class DataGenMain {
     ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
     CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
     gen.addProvider(event.includeServer(), new RCRecipeGen(output));
+    gen.addProvider(event.includeClient(), new RCBlockModelGen(output, existingFileHelper));
     gen.addProvider(
         event.includeClient(), new RCItemModelGen(output, Randomcontent.MODID, existingFileHelper));
     event

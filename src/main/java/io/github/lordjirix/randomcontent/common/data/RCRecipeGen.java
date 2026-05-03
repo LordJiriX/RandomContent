@@ -3,6 +3,7 @@ package io.github.lordjirix.randomcontent.common.data;
 import static io.github.lordjirix.randomcontent.Randomcontent.MODID;
 
 import io.github.lordjirix.randomcontent.common.data.tag.RCTags;
+import io.github.lordjirix.randomcontent.loader.RCBlocks;
 import io.github.lordjirix.randomcontent.loader.RCItems;
 import java.util.function.Consumer;
 import net.minecraft.data.PackOutput;
@@ -37,6 +38,14 @@ public class RCRecipeGen extends RecipeProvider implements IConditionBuilder {
         .define('I', Items.IRON_INGOT)
         .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
         .save(pw);
+    ShapedRecipeBuilder.shaped(RecipeCategory.MISC, RCBlocks.MACHINE_CASING_STEEL.get())
+        .pattern("SSS")
+        .pattern("SIS")
+        .pattern("SSS")
+        .define('S', RCTags.I.STEEL_INGOT)
+        .define('I', Blocks.STONE)
+        .unlockedBy(getHasName(RCItems.STEEL_INGOT.get()), has(RCTags.I.STEEL_INGOT))
+        .save(pw);
     ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, RCItems.IRON_DUST.get())
         .requires(Items.IRON_INGOT)
         .requires(RCItems.SIMPLE_GRINDER.get())
@@ -65,7 +74,6 @@ public class RCRecipeGen extends RecipeProvider implements IConditionBuilder {
             20 * 32)
         .unlockedBy(getHasName(RCItems.BEDROCKIUM_DUST.get()), has(RCItems.BEDROCKIUM_DUST.get()))
         .save(pw, new ResourceLocation(MODID, "smelting/bedrockium_ingot_from_dust"));
-
     SimpleCookingRecipeBuilder.smelting(
             Ingredient.of(RCItems.STEEL_DUST.get()),
             RecipeCategory.MISC,

@@ -43,7 +43,8 @@ public class RCData {
               RCBlocks.BEDROCK_MINER_BLOCK,
               RCBlocks.ELEVATOR_BLOCK,
               RCBlocks.GREENHOUSE_BLOCK_1,
-              RCBlocks.TIME_COMPRESSOR_BLOCK_1));
+              RCBlocks.TIME_COMPRESSOR_BLOCK_1,
+              RCBlocks.MACHINE_CASING_STEEL));
 
   // Lootbags data
   public static List<Item> exampleLootbagDrops =
